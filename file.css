@@ -1,0 +1,183 @@
+/* Basic reset */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+}
+
+/* Container for the main content */
+.container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 10;
+}
+
+/* Page visibility management */
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+/* Start button style */
+button.glowing-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button.glowing-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Input field styles */
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Category and answers container */
+.category-container, .answers-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.category-container div, .answers-container button {
+    margin: 10px;
+    padding: 15px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 150px;
+}
+
+.category-container div:hover, .answers-container button:hover {
+    background-color: #0056b3;
+}
+
+/* Heading styles */
+h2 {
+    margin-bottom: 20px;
+}
+
+h3 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Final scores style */
+#final-scores {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Blob and neon sign styles */
+#blob-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: #141516;
+    z-index: -1;
+}
+
+.blob {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: linear-gradient(45deg, #ff6f61, #ff9d76, #fcbf49, #f7ede2);
+    border-radius: 50%;
+    animation: blob 8s infinite;
+    filter: blur(100px);
+}
+
+@keyframes blob {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(20px, -30px);
+    }
+    50% {
+        transform: translate(-30px, 20px);
+    }
+    75% {
+        transform: translate(-20px, -20px);
+    }
+}
+
+.neon-sign {
+    position: absolute;
+    top: 20px;
+    font-family: 'Space Grotesk', sans-serif;
+    color: #fff;
+    text-align: center;
+    font-size: 4rem;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8),
+                 0 0 10px rgba(255, 255, 255, 0.7),
+                 0 0 20px rgba(255, 255, 255, 0.6),
+                 0 0 40px #FF00FF,
+                 0 0 80px #FF00FF,
+                 0 0 100px #FF00FF;
+    animation: neon-glow 1.5s infinite alternate;
+}
+
+@keyframes neon-glow {
+    from {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+                     0 0 20px rgba(255, 255, 255, 0.7),
+                     0 0 30px rgba(255, 255, 255, 0.6),
+                     0 0 40px #FF00FF,
+                     0 0 50px #FF00FF,
+                     0 0 60px #FF00FF,
+                     0 0 70px #FF00FF;
+    }
+    to {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.8),
+                     0 0 30px rgba(255, 255, 255, 0.7),
+                     0 0 40px rgba(255, 255, 255, 0.6),
+                     0 0 50px #FF00FF,
+                     0 0 60px #FF00FF,
+                     0 0 70px #FF00FF,
+                     0 0 80px #FF00FF;
+    }
+}
+
+/* Hide blob container when not on the start page */
+.page.active #blob-container {
+    display: none;
+}
+
+/* Show and hide elements based on the current page */
+.page.active #blob-container.hidden {
+    display: none;
+}
+
+#category-selection h2#player-names {
+    display: none; /* Hide player names initially */
+}
